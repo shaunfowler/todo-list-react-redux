@@ -1,4 +1,4 @@
-# webpack-react-redux-boilerplate
+# todo-list-react-redux
 
 A boilerplate project that bootstraps and uses:
 - react

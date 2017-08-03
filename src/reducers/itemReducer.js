@@ -3,7 +3,7 @@ import initialState from './initialState';
 
 export default function courseReducer(state = initialState.items, action) {
     switch (action.type) {
-        case types.CREATE_ITEM:
+        case types.CREATE_ITEM_SUCCESS:
             return [
                 ...state,
                 Object.assign({}, action.item)

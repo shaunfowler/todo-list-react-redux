@@ -9,6 +9,7 @@ class TodoListPage extends React.Component {
     constructor(state) {
         super(state);
         this.onAddItem = this.onAddItem.bind(this);
+        this.onDeleteItem = this.onDeleteItem.bind(this);
     }
 
     onItemNameChange(event) {
@@ -21,12 +22,16 @@ class TodoListPage extends React.Component {
         this.props.createItem(item);
     }
 
+    onDeleteItem(itemId) {
+        this.props.deleteItem(itemId);
+    }
+
     render() {
         return (
             <div>
                 <h1>Home</h1>
                 <TodoAddForm onAddItem={this.onAddItem}/>
-                <TodoList items={this.props.items}/>
+                <TodoList items={this.props.items} onDelete={this.onDeleteItem}/>
             </div>
         );
     }
@@ -34,7 +39,8 @@ class TodoListPage extends React.Component {
 
 TodoListPage.propTypes = {
     items: PropTypes.array.isRequired,
-    createItem: PropTypes.func.isRequired
+    createItem: PropTypes.func.isRequired,
+    deleteItem: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -43,7 +49,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        createItem: item => dispatch(itemActions.createItem(item))
+        createItem: item => dispatch(itemActions.createItem(item)),
+        deleteItem: item => dispatch(itemActions.deleteItem(item))
     };
 }
 

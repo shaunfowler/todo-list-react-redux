@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import TodoListItem from './TodoListItem';
 
 class TodoList extends React.Component {
+    constructor(state) {
+        super(state);
+        this.itemRow = this.itemRow.bind(this);
+    }
+
     itemRow(item, index) {
-        return (<TodoListItem item={item} key={index}/>);
+        return (<TodoListItem item={item} onDelete={this.props.onDelete} key={index}/>);
     }
 
     render() {
@@ -23,7 +28,8 @@ class TodoList extends React.Component {
 }
 
 TodoList.propTypes = {
-    items: PropTypes.array.isRequired
+    items: PropTypes.array.isRequired,
+    onDelete: PropTypes.func.isRequired
 };
 
 export default TodoList;

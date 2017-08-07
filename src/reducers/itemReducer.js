@@ -10,6 +10,8 @@ export default function courseReducer(state = initialState.items, action) {
             ];
         case types.LOAD_ITEMS_SUCCESS:
             return action.items;
+        case types.DELETE_ITEM_SUCCESS:
+            return [...state.filter(s => s.id !== action.itemId)];
         default:
             return state;
     }

@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TodoListItem = ({item, onDelete}) => (
-    <div>
-        {item.name} <button onClick={() => onDelete(item.id)}>X</button>
+    <div className='list-group-item'>
+        <button className='btn btn-link' onClick={() => onDelete(item.id)}>
+            <i className='glyphicon glyphicon-ok'/>
+        </button>
+        {item.name}
     </div>
 );
 

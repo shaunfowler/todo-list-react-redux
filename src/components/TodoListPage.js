@@ -28,10 +28,11 @@ class TodoListPage extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Home</h1>
-                <TodoAddForm onAddItem={this.onAddItem}/>
-                <TodoList items={this.props.items} onDelete={this.onDeleteItem}/>
+            <div className='row'>
+                <div className='col s8 offset-s2'>
+                    <TodoAddForm onAddItem={this.onAddItem}/>
+                    <TodoList items={this.props.items} onDelete={this.onDeleteItem}/>
+                </div>
             </div>
         );
     }

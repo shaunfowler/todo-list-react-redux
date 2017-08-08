@@ -15,13 +15,10 @@ class TodoList extends React.Component {
     render() {
         return (
             <div>
-                {this.props.items.length === 0 && <div>
-                    <i>No items</i>
-                </div>}
-
-                <ul>
+                {this.props.items.length === 0 && <div className='well'>No items</div>}
+                <div className='list-group'>
                     {this.props.items.map(this.itemRow)}
-                </ul>
+                </div>
             </div>
         );
     }

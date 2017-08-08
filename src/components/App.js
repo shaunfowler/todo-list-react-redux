@@ -1,14 +1,11 @@
 import {Route} from 'react-router-dom';
 import React from 'react';
-import Header from './Header';
 import TodoListPage from './TodoListPage';
-import About from './About';
+import './App.less';
 
 const App = () => (
-    <div>
-        <Header/>
+    <div className='app'>
         <Route exact path='/' component={TodoListPage}/>
-        <Route path='/about' component={About}/>
     </div>
 );
 

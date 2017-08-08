@@ -6,6 +6,8 @@ import configureStore from './store/configureStore';
 import App from './components/App';
 import {loadItems} from './actions/itemActions';
 
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
 const store = configureStore();
 store.dispatch(loadItems());
 

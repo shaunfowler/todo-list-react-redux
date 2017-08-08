@@ -13,13 +13,18 @@ class TodoAddForm extends React.Component {
         this.onAddItem = this.onAddItem.bind(this);
     }
 
+    componentDidMount() {
+        this.nameInput.focus();
+    }
+
     onItemNameChange(event) {
         const item = this.state.item;
         item.name = event.target.value;
         this.setState({item});
     }
 
-    onAddItem() {
+    onAddItem(event) {
+        event.preventDefault();
         this.props.onAddItem(this.state.item);
         this.setState({
             item: {
@@ -30,10 +35,9 @@ class TodoAddForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <input type='text' onChange={this.onItemNameChange} placeholder='Item name' value={this.state.item.name}/>
-                <button onClick={this.onAddItem}>Add</button>
-            </div>
+            <form onSubmit={this.onAddItem} className='todo-add-form'>
+                <input type='text' className='form-control input-lg' onChange={this.onItemNameChange} ref={(input) => { this.nameInput = input; }} value={this.state.item.name} placeholder='Add a TODO item'/>
+            </form>
         );
     }
 }
